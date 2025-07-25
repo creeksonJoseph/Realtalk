@@ -72,12 +72,12 @@ export default function AddEditPostPage({ editMode }) {
     );
 
   return (
-    <div className="h-screen bg-gradient-to-br from-[#1f2948] via-[#141d38] to-[#141d38]">
+    <div className="min-h-screen pt-20 bg-gradient-to-br from-[#1f2948] via-[#141d38] to-[#141d38]">
       <form
         onSubmit={handleSubmit}
         className="max-w-xl mx-auto p-8 bg-gradient-to-br from-[#1f2948] via-[#141d38] to-[#141d38] border border-[#232b4a] shadow-xl rounded-xl mt-10 text-white"
       >
-        <h2 className="text-2xl font-bold text-[#fcdb32] mb-6 text-center drop-shadow">
+        <h2 className="text-2xl mt-20 font-bold text-[#fcdb32] mb-6 text-center drop-shadow">
           {editMode ? "Edit Post" : "New Post"}
         </h2>
 

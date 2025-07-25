@@ -24,7 +24,7 @@ export default function FavouritesPage() {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-br from-[#0000] via-[#232852] to-[#141d20]">
       <div className=" pt-20 px-2 py-8 max-w-3xl h-screen bg-gradient-to-br from-[#0000] via-[#232852] to-[#141d20] mx-auto">
         <h2 className="text-xl mb-3 font-semibold text-blue-500">Favourites</h2>
         {loading ? (
