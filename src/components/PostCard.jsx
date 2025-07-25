@@ -100,9 +100,7 @@ export default function PostCard({
           )}
         </div>
       </div>
-      <div className="mt-4 text-lg font-semibold text-white drop-shadow">
-        {post.text}
-      </div>
+
       {post.image && (
         <img
           src={post.image}
@@ -117,6 +115,12 @@ export default function PostCard({
           className="my-4 w-full rounded-xl max-h-[300px] bg-black border-2 border-[#fcdb32]/20"
         />
       )}
+      <div
+        style={{ fontFamily: "var(--font-roboto-condensed)" }}
+        className="  text-white drop-shadow"
+      >
+        {post.text}
+      </div>
     </div>
   );
 }

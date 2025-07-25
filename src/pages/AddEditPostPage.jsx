@@ -7,6 +7,7 @@ export default function AddEditPostPage({ editMode }) {
   const navigate = useNavigate();
   const [post, setPost] = useState({ text: "", image: "", video: "" });
   const [loading, setLoading] = useState(editMode);
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (editMode && id) {
@@ -19,6 +20,35 @@ export default function AddEditPostPage({ editMode }) {
 
   const handleChange = (e) =>
     setPost((p) => ({ ...p, [e.target.name]: e.target.value }));
+  const handleUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "creekson");
+    formData.append("folder", "firstProject");
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dzgwtssxv/auto/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await res.json();
+      if (file.type.startsWith("video")) {
+        setPost((p) => ({ ...p, video: data.secure_url, image: "" }));
+      } else {
+        setPost((p) => ({ ...p, image: data.secure_url, video: "" }));
+      }
+    } catch (err) {
+      console.error("Upload failed:", err);
+    } finally {
+      setUploading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,23 +91,18 @@ export default function AddEditPostPage({ editMode }) {
           required
         />
 
-        <input
-          name="image"
-          type="text"
-          value={post.image}
-          onChange={handleChange}
-          placeholder="Image URL"
-          className="w-full mb-4 rounded-lg bg-[#1f2948] border border-[#fcdb32]/20 text-white placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#fcdb32]"
-        />
-
-        <input
-          name="video"
-          type="text"
-          value={post.video}
-          onChange={handleChange}
-          placeholder="Video URL"
-          className="w-full mb-6 rounded-lg bg-[#1f2948] border border-[#fcdb32]/20 text-white placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#fcdb32]"
-        />
+        <label className="block mb-6">
+          <span className="block mb-2 font-semibold">
+            Attach Image or Video
+          </span>
+          <input
+            type="file"
+            accept="image/*,video/*"
+            onChange={handleUpload}
+            className="block w-full text-sm text-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#fcdb32] file:text-black hover:file:bg-[#ffe983]"
+          />
+          {uploading && <p className="mt-2 text-[#fcdb32]">Uploading...</p>}
+        </label>
 
         <div className="flex gap-3">
           <button

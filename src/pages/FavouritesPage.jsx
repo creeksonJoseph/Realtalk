@@ -24,26 +24,28 @@ export default function FavouritesPage() {
   };
 
   return (
-    <div className=" pt-20 px-2 py-8 max-w-3xl bg-gradient-to-br from-[#0000] via-[#232852] to-[#141d20] mx-auto">
-      <h2 className="text-xl mb-3 font-semibold text-blue-500">Favourites</h2>
-      {loading ? (
-        <div className="py-12 text-center text-gray-400">Loading...</div>
-      ) : favs.length === 0 ? (
-        <div className="py-12 text-center text-gray-400">
-          No favourites yet.
-        </div>
-      ) : (
-        favs.map((post) => (
-          <PostCard
-            key={post.id}
-            post={post}
-            onEdit={() => navigate(`/edit/${post.id}`)}
-            onDelete={() => null}
-            onFav={() => handleRemoveFav(post.id)}
-            isFavourite={true}
-          />
-        ))
-      )}
+    <div className="bg-gradient-to-br from-[#0000] via-[#232852] to-[#141d20]">
+      <div className=" pt-20 px-2 py-8 max-w-3xl bg-gradient-to-br from-[#0000] via-[#232852] to-[#141d20] mx-auto">
+        <h2 className="text-xl mb-3 font-semibold text-blue-500">Favourites</h2>
+        {loading ? (
+          <div className="py-12 text-center text-gray-400">Loading...</div>
+        ) : favs.length === 0 ? (
+          <div className="py-12 text-center text-gray-400">
+            No favourites yet.
+          </div>
+        ) : (
+          favs.map((post) => (
+            <PostCard
+              key={post.id}
+              post={post}
+              onEdit={() => navigate(`/edit/${post.id}`)}
+              onDelete={() => null}
+              onFav={() => handleRemoveFav(post.id)}
+              isFavourite={true}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import FavouritesPage from "./pages/FavouritesPage";
 import AddEditPostPage from "./pages/AddEditPostPage";
 
-export const API = "http://localhost:3001"; // Make sure this matches your json-server endpoint
+export const API = "https://realtalk-server-dn6o.onrender.com"; // Make sure this matches your json-server endpoint
 
 export default function App() {
   return (
