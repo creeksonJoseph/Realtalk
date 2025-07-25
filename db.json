@@ -79,6 +79,14 @@
       "video": "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
       "date": "2025-07-24T21:45:00Z",
       "favourite": true
+    },
+    {
+      "id": "bc9d",
+      "text": "yooo this was the best day ever",
+      "image": "",
+      "video": "",
+      "date": "2025-07-25T11:05:30.596Z",
+      "favourite": false
     }
   ]
 }

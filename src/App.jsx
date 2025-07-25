@@ -9,7 +9,7 @@ export const API = "http://localhost:3001"; // Make sure this matches your json-
 
 export default function App() {
   return (
-    <>
+    <div className=" bg-black">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -17,6 +17,6 @@ export default function App() {
         <Route path="/add" element={<AddEditPostPage />} />
         <Route path="/edit/:id" element={<AddEditPostPage editMode />} />
       </Routes>
-    </>
+    </div>
   );
 }

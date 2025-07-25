@@ -35,56 +35,66 @@ export default function AddEditPostPage({ editMode }) {
   };
 
   if (loading)
-    return <div className="py-12 text-center text-gray-400">Loading...</div>;
+    return (
+      <div className="py-12 text-center text-[#fcdb32] drop-shadow">
+        Loading...
+      </div>
+    );
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-xl mx-auto p-8 bg-white shadow-xl rounded-lg mt-6"
-    >
-      <h2 className="text-xl font-semibold mb-6">
-        {editMode ? "Edit Post" : "New Post"}
-      </h2>
-      <textarea
-        name="text"
-        value={post.text}
-        onChange={handleChange}
-        placeholder="Text"
-        className="w-full mb-3 border rounded px-3 py-2 focus:ring focus:border-[#fcdb32]"
-        rows={4}
-        required
-      />
-      <input
-        name="image"
-        type="text"
-        value={post.image}
-        onChange={handleChange}
-        placeholder="Image URL"
-        className="w-full mb-3 border rounded px-3 py-2"
-      />
-      <input
-        name="video"
-        type="text"
-        value={post.video}
-        onChange={handleChange}
-        placeholder="Video URL"
-        className="w-full mb-6 border rounded px-3 py-2"
-      />
-      <div className="flex gap-2">
-        <button
-          type="submit"
-          className="bg-[#fcdb32] hover:bg-[#ffe983] px-4 py-2 rounded font-bold text-black flex-1 transition-all duration-100"
-        >
-          {editMode ? "Update Post" : "Add Post"}
-        </button>
-        <button
-          type="button"
-          onClick={() => navigate("/")}
-          className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded font-bold flex-1 transition-all duration-100"
-        >
-          Cancel
-        </button>
-      </div>
-    </form>
+    <div className="h-screen bg-gradient-to-br from-[#1f2948] via-[#141d38] to-[#141d38]">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-xl mx-auto p-8 bg-gradient-to-br from-[#1f2948] via-[#141d38] to-[#141d38] border border-[#232b4a] shadow-xl rounded-xl mt-10 text-white"
+      >
+        <h2 className="text-2xl font-bold text-[#fcdb32] mb-6 text-center drop-shadow">
+          {editMode ? "Edit Post" : "New Post"}
+        </h2>
+
+        <textarea
+          name="text"
+          value={post.text}
+          onChange={handleChange}
+          placeholder="What's on your mind?"
+          className="w-full mb-4 rounded-lg bg-[#1f2948] border border-[#fcdb32]/20 text-white placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#fcdb32]"
+          rows={4}
+          required
+        />
+
+        <input
+          name="image"
+          type="text"
+          value={post.image}
+          onChange={handleChange}
+          placeholder="Image URL"
+          className="w-full mb-4 rounded-lg bg-[#1f2948] border border-[#fcdb32]/20 text-white placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#fcdb32]"
+        />
+
+        <input
+          name="video"
+          type="text"
+          value={post.video}
+          onChange={handleChange}
+          placeholder="Video URL"
+          className="w-full mb-6 rounded-lg bg-[#1f2948] border border-[#fcdb32]/20 text-white placeholder-gray-400 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#fcdb32]"
+        />
+
+        <div className="flex gap-3">
+          <button
+            type="submit"
+            className="bg-[#fcdb32] hover:bg-[#ffe983] text-black px-5 py-3 rounded-lg font-bold flex-1 transition-all duration-200"
+          >
+            {editMode ? "Update Post" : "Add Post"}
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate("/")}
+            className="bg-gray-500 hover:bg-gray-400 text-white px-5 py-3 rounded-lg font-bold flex-1 transition-all duration-200"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }

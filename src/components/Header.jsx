@@ -5,10 +5,14 @@ import { FcGenericSortingDesc } from "react-icons/fc";
 export default function Header() {
   const navigate = useNavigate();
   return (
-    <header className="flex justify-between items-center p-4 shadow-md bg-white sticky top-0 z-30">
+    <header
+      className="flex fixed top-0 left-0 w-full justify-between items-center p-4 shadow-md z-30"
+      style={{ background: "#141d38" }}
+    >
       <DropdownMenu />
       <div
-        className="text-2xl font-bold text-[#fcdb32] flex items-center select-none cursor-pointer"
+        className="text-2xl font-bold flex items-center select-none cursor-pointer"
+        style={{ color: "#fcdb32" }}
         onClick={() => navigate("/")}
       >
         REAL-TALK
@@ -18,7 +22,14 @@ export default function Header() {
       </div>
       <button
         onClick={() => navigate("/add")}
-        className="bg-[#fcdb32] hover:bg-[#ffe983] text-black font-semibold px-4 py-2 rounded transition-all duration-150"
+        className="font-semibold px-4 py-2 rounded transition-all duration-150 shadow"
+        style={{
+          background: "#fcdb32",
+          color: "#141d38",
+          fontWeight: 700,
+        }}
+        onMouseOver={(e) => (e.currentTarget.style.background = "#ffe983")}
+        onMouseOut={(e) => (e.currentTarget.style.background = "#fcdb32")}
       >
         + Add Post
       </button>
