@@ -1,12 +1,33 @@
-# React + Vite
+# Real-Talk
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Real-Talk is a micro-blogging app where users can share text, images, and videos in a clean and modern interface.  
+Built with **React** and **Tailwind CSS**, it focuses on simplicity and speed for sharing everyday thoughts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## Expanding the ESLint configuration
+- ✍Share posts with text
+- Upload multiple images
+-  Attach one video per post
+-  Live previews for media before posting
+-  Modern UI using **Tailwind CSS** with the theme colors:
+  - `#fcdb32` (Yellow)
+  - `#141d38` (Dark Blue)
+-  Fully responsive for all screen sizes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+##  Tech Stack
+
+- **Frontend:** React + Vite  
+- **Styling:** Tailwind CSS  
+- **State Management:** React Hooks (`useState`, `useRef`)  
+
+---
+
+
+##  Live Demo
+
+Check out the live deployed version here:  
+**[Real-Talk Live](https://realtalk-two.vercel.app/)**
